@@ -1,0 +1,47 @@
+program parovozik;
+uses crt;
+type Count = integer;
+var
+ space: string;
+ x, i: Count;
+ n, k, g: integer;
+begin
+ space:= '';
+ k:= 80+1; {count space}
+ n:= k+1;
+ for i:=1 to n do begin {count time}
+  for x:=1 to 28 do {space, up}
+   writeln;
+  if i mod 2 = 0 then {animation}
+   g:= 0
+  else
+   g:= 10;
+   space:='';
+  for x:=1 to k do {space, left}
+   space:=space+' ';
+  k:=k-1;
+  for x:=1+g to 10+g do begin {count print}
+   write(space);
+   case x of
+    1, 11: writeln('      ====        ________                 ___________');
+    2, 12: writeln('  _0 _|  |_______/        \__|_|_____====__|_________/');
+    3, 13: writeln('   |{_}--   |   #\________/ |   |         =| _   _ |  ');
+    4, 14: writeln('   /    |   |   #  |  |     |   |          ||_| |_||  ');
+    5, 15: writeln('  |     |   |   #  |__.....................| |___| |  ');
+    6, 16: writeln('  | ________|___#__/__|_____/[][]-\________|       |  ');
+    7, 17: writeln('  |/ |___|...........|_____| [][] [] +     |=======|  ');
+    8, 18: writeln('__/ =|___|+---\  /--\  /--\  /--\ ___+ ____________|  ');
+    9: writeln(' |/-=|---|=@=====@=====@====@==  |____/  \____/       ');
+    10: writeln('  \_/      \__/  \__/  \__/  \__/     \__/            ');
+    19: writeln(' |/-=|---|    \/    \/    \/    \/____/  \____/       ');
+    20: writeln('  \_/     \_=@=====@=====@====@==     \__/            ');
+   end;
+  end;
+  for x:=1 to n*2 do {rails}
+   write('-');
+  writeln;
+  for x:=1 to 30 do {space, down}
+   writeln;
+  delay(20);
+ end;
+end.
